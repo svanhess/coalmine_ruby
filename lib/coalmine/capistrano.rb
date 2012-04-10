@@ -17,7 +17,7 @@ module Coalmine
             if config.dry_run
               logger.info "Dry Run... Coalmine will not actually be notified"
             else
-              run(cmd, :once => true) { |ch, stream, data| result << data }
+              run(cmd, :once => true)
             end
             
             logger.info "Coalmine notification completed."
