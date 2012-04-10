@@ -5,9 +5,9 @@ require "coalmine/version"
 Gem::Specification.new do |s|
   s.name        = "coalmine"
   s.version     = Coalmine::VERSION
-  s.authors     = ["Brad Seefeld"]
-  s.email       = ["bradley.seefeld@gmail.com"]
-  s.homepage    = "https://github.com/bradseefeld/coalmine"
+  s.authors     = ["Brad Seefeld", "Matt Ratzloff"]
+  s.email       = ["admin@coalmineapp.com"]
+  s.homepage    = "https://github.com/coalmine/coalmine_ruby"
   s.summary     = "Coalmine Connector Ruby implementation"
   s.description = "Send errors to the Coalmine API for logging and analytics."
 
