@@ -1,14 +1,17 @@
-# Ruby Connector for Coalmine
+Ruby Connector for Coalmine
+===========================
 
 This connector allows you to easily send errors and log messages to the Coalmine API.
 
-## Setup
+Setup
+-----
 
 Rails 3.x:
 
     gem "coalmine"
     
-## Configuration
+Configuration
+-------------
 
 In a Rails app create an initializer and configure as such:
 
@@ -25,7 +28,8 @@ All uncaught exceptions are automatically logged. To manually log an exception t
       notify_coalmine(e)
     end
     
-## Usage
+Usage
+-----
 
 To notify Coalmine of a deployment
 
@@ -34,7 +38,8 @@ To notify Coalmine of a deployment
     # For example
     rake coalmine:deployment[1.0.0,brad]
     
-## Filtering sensitive information
+Filtering sensitive information
+-------------------------------
 
 Coalmine will automatically string-replace values that you deem to be sensitive and do not want to be sent out.
 Coalmine automatically honors `Rails.application.config.filter_parameters`. If you wish to include additional filter properties, you can via the config:
