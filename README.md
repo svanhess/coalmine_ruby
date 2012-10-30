@@ -34,6 +34,12 @@ To notify Coalmine of a deployment
     # For example
     rake coalmine:deployment[1.0.0,brad]
     
+Or, with Capistrano add this to your `deploy.rb`:
+
+    require "coalmine/capistrano"
+
+This will automatically send a deployment notification to Coalmine when you run `cap deploy`
+    
 ## Filtering sensitive information
 
 Coalmine will automatically string-replace values that you deem to be sensitive and do not want to be sent out.
