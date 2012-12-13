@@ -73,3 +73,8 @@ You will most likely initialize all your custom application variables at the beg
         Coalmine.custom_variables[:something] = "another custom value"
       end
     end
+
+Third-party extensions
+----------------------
+
+* Resque ([Fatsoma/resque_coalmine_gem](https://github.com/Fatsoma/resque_coalmine_gem))
