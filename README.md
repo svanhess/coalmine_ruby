@@ -1,14 +1,22 @@
-# Ruby Connector for Coalmine
+Ruby Connector for Coalmine
+===========================
 
-This connector allows you to easily send errors and log messages to the Coalmine API.
+This connector allows you to easily send messages to the Coalmine API.
 
-## Setup
+Source
+------
+
+You can always find the latest source code on [GitHub](https://github.com/coalmine/coalmine_ruby).
+
+Setup
+-----
 
 Rails 3.x:
 
     gem "coalmine"
     
-## Configuration
+Configuration
+-------------
 
 In a Rails app create an initializer and configure as such:
 
@@ -25,7 +33,8 @@ All uncaught exceptions are automatically logged. To manually log an exception t
       notify_coalmine(e)
     end
     
-## Usage
+Usage
+-----
 
 To notify Coalmine of a deployment
 
@@ -33,14 +42,15 @@ To notify Coalmine of a deployment
     
     # For example
     rake coalmine:deployment[1.0.0,brad]
-    
+
 Or, with Capistrano add this to your `deploy.rb`:
 
     require "coalmine/capistrano"
 
 This will automatically send a deployment notification to Coalmine when you run `cap deploy`
     
-## Filtering sensitive information
+Filtering sensitive information
+-------------------------------
 
 Coalmine will automatically string-replace values that you deem to be sensitive and do not want to be sent out.
 Coalmine automatically honors `Rails.application.config.filter_parameters`. If you wish to include additional filter properties, you can via the config:
@@ -51,7 +61,8 @@ Coalmine automatically honors `Rails.application.config.filter_parameters`. If y
     
 The above would replace all properties named `credit-card` with the value [FILTERED].
 
-## Setting custom variables to included with notifications
+Setting custom variables to included with notifications
+-------------------------------------------------------
 
 You can include extra information by defining custom variables. These are automatically appended to the notification sent to Coalmine and appear in the 'Application' tab. Custom variables are added like so:
 
@@ -69,3 +80,8 @@ You will most likely initialize all your custom application variables at the beg
         Coalmine.custom_variables[:something] = "another custom value"
       end
     end
+
+Third-party extensions
+----------------------
+
+* Resque ([Fatsoma/resque_coalmine_gem](https://github.com/Fatsoma/resque_coalmine_gem))
