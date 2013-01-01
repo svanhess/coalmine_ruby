@@ -12,7 +12,14 @@ module Coalmine
         :version,
       
         # The environments for which notifications can be posted
-        :enabled_environments
+        :enabled_environments,
+        
+        # Method to call to get the current user.
+        :current_user_method,
+        
+        :user_id_method
+        
+        
   
     def initialize
       self.protocol = "https"
@@ -25,6 +32,9 @@ module Coalmine
       self.http_read_timeout = 6
       self.logger = Coalmine::Logger.new
       self.filters = []
+      
+      self.current_user_method = :current_user
+      self.user_id_method = :id
     end
    
     def protocol=(proto)

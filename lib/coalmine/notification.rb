@@ -12,7 +12,8 @@ module Coalmine
     attr_accessor :stack_trace, :message, :line_number, :url, 
         :error_class, :controller, :action, :method, :parameters, 
         :ip_address, :user_agent, :cookies, :environment, :server,
-        :severity, :hostname, :process_id, :file, :referrer, :thread_id
+        :severity, :hostname, :process_id, :file, :referrer, :thread_id,
+        :user_id
         
     def initialize(args = {})
       
@@ -83,6 +84,7 @@ module Coalmine
         :process_id      => process_id,
         :thread_id       => thread_id.to_s, # Because it is a long
         :referrer        => referrer,
+        :user_id         => user_id,
         :application     => Coalmine.custom_variables
       }
       

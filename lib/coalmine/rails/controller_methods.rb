@@ -29,19 +29,34 @@ module Coalmine
         notify_coalmine(exception)
         rescue_action_in_public_without_coalmine(exception)
       end
+      
+      def coalmine_user_id
+        user_id = nil
+        if Coalmine.config.current_user_method && respond_to?(Coalmine.config.current_user_method)
+          user_id = send(Coalmine.config.current_user_method)
+          if user_id && Coalmine.config.user_id_method && user_id.respond_to?(Coalmine.config.user_id_method)
+            user_id = user_id.send(Coalmine.config.user_id_method)
+          end
+        end
+        
+        user_id.try(:to_s)
+      end
 
       ##
       # Gather environment information about the current request.
       #
       # @return [Hash] Information about the current request.
       def coalmine_request_data
+        
+        
         {
           :controller => params[:controller],
           :action     => params[:action],
           :url        => request.url,
           :method     => request.method,
           :parameters => params,
-          :ip_address => request.remote_ip
+          :ip_address => request.remote_ip,
+          :user_id    => coalmine_user_id
         }
       end
       
