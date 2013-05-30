@@ -27,7 +27,7 @@ In a Rails app create an initializer and configure as such:
       config.logger = Rails.logger
     end
 
-All uncaught exceptions are automatically logged. To manually log an exception to coalmine:
+All uncaught exceptions are automatically logged. To manually log an exception to coalmine from a controller:
 
     begin
       call_dangerous_method
